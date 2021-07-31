@@ -1,0 +1,88 @@
+<div class="main-div">
+
+
+  <div class="main-div-title">
+    <!-- Here is the image of the dad's taxi calculator -->
+  </div>
+
+
+  <section *ngIf="Step==0">
+
+    <p>
+      Dad’s taxi is the cheapest, most used taxi on earth (probably). <br />
+      Wherever your little ones need to go, dad’s cab company is usually the first port of call. <br />
+      Like being constantly exhausted, ferrying the kids around is part and parcel of fatherhood, and it’s one that dads
+      usually don’t mind. <br />
+      But this Father’s Day, why not pull the old switcheroo, and ask the kids to give a little back? <br />
+      Our Father’s Day Chore Calculator tells you exactly what the children need to do to pay you back for your
+      hard-earned petrol.<br />
+      Simply enter the number of miles you rack up in Dad’s taxi per week, and we’ll give them a list of ‘repayment’
+      tasks.
+      <br /><br />
+      Happy Father’s Day, dads!
+
+    </p>
+
+    <button (click)="Step=1"> Start </button>
+  </section>
+
+  <div *ngIf="Step==1">
+
+    <section>
+      Km or Miles? <br />
+      <button (click)="ChangeUnitLength('K')">
+        Km <label *ngIf="UnitLengthValue=='K'"> &#10003;</label>
+      </button>
+      <button (click)="ChangeUnitLength('M')">
+        Miles <label *ngIf="UnitLengthValue=='M'"> &#10003;</label>
+      </button>
+    </section>
+
+    <section>
+      How many <b>{{UnitLengthValue=='M'?'Miles':'Kilometers (Km)'}}</b> does dad do every week with his taxi?
+      <br />
+      <button style="width: 40px;" (click)="UpdateDistance(-1)">-</button>
+      <input type="number" min="1" [(ngModel)]="Distance" />
+      <button style="width: 40px;" (click)="UpdateDistance(1)">+</button>
+    </section>
+
+    <section>
+      <div>
+        <div class="resultdiv">
+          The weekly cost of dad's services for the distance of <b>{{Distance}}
+            {{UnitLengthValue=='M'?'Miles':'Kilometers (Km)'}}</b> are:<br />
+          £{{Distance * 5.98}}<br />
+          <br />
+          Check the table and chose the chores to pay back your dad.
+          <br />
+          <br />
+          <img src="https://brobible.com/wp-content/uploads/2020/03/screen-shot-2020-03-13-at-10.18.49-am.jpg"
+            style="width: 50%; text-align: center; margin: auto;" />
+        </div>
+        <div class="resultdiv">
+          <table>
+            <thead>
+              <tr>
+                <th>Chore</th>
+                <th>Price</th>
+                <th>Nr. of times</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let chore of Chores ">
+                <td>{{chore.Name}}</td>
+                <td>{{chore.Value| number: '1.2-2'}}</td>
+                <td>{{ Calculate(chore.Value)| number: '1.0-0'}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+</div>

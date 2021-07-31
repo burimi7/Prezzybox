@@ -1,0 +1,80 @@
+$buttons: #0099CC
+$darken-button: darken($buttons, 10%)
+$div_background: lighten($buttons, 30%)
+
+
+.main-div
+ background-color: white
+ width: auto
+ padding: 20px
+ border-radius: 30px
+ font-family: cursive
+
+.main-div-title
+ margin: auto
+ width: 280px
+ height: 100px
+ padding: 20px
+ border: 1px solid blue
+ border-radius: 19px
+ overflow-wrap: anywhere
+ text-align: center
+ background-image: url(../assets/Logo.png)
+ background-repeat: round 
+ @media (max-width: 700px)
+  width: auto
+  
+section
+ width: auto 
+ text-align: center
+ border-radius: 20px
+ background-color: $div_background
+ padding: 10px
+ margin: 10px
+
+button
+ background-color: $buttons
+ width: 40%
+ margin: 10px
+ padding: 10px
+ border: 0px
+ border-radius: 10px
+ font-family: cursive
+ font-weight: bold
+ text-transform: uppercase
+ font-size: inherit
+ 
+button:hover
+ background-color: $darken-button
+ color: white
+
+input[type=number]
+ padding: 10px
+ height: 20px
+ border-radius: 20px
+ text-align: center
+ width: 50px
+ border: 0
+
+table
+ background-color: lighten($buttons, 10%)
+ border-radius: 10px
+ padding: 10px
+ width: 100%
+thead
+ background-color: $darken-button
+ color: white
+ padding: 5px
+thead th
+ padding: 5px
+td
+ padding: 5px
+tbody tr:hover
+ background-color: $div_background
+
+.resultdiv
+ display: inline-grid
+ width: 50%
+ @media (max-width: 700px)
+  display: block
+  width: 100%
